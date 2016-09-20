@@ -1,0 +1,32 @@
+﻿<h3>Contract Details</h3>
+<div>
+	<form name="newContractForm">
+		<p class="input-group">
+			<span class="input-group-addon" style="width: 160px; text-align: left">Name</span>
+			<input type="text" name="nameInput" class="form-control" ng-model="contract.Name" unique-name-server-validator/>
+		</p>
+		<span ng-show="newContractForm.nameInput.$dirty && newContractForm.nameInput.$invalid">The name is required.</span>
+		<p class="input-group">
+			<span class="input-group-addon" style="width: 160px; text-align: left">Position</span>
+			<select class="form-control" ng-model="contract.Position" ng-options="position for position in positions" ng-blur="calculateSalary()">
+				<option value="" />
+			</select>
+		</p>
+		<p class="input-group">
+			<span class="input-group-addon" style="width: 160px; text-align: left">Experience</span>
+			<input type="text" class="form-control" ng-model="contract.Experience" typeof="number" min="0" ng-blur="calculateSalary()"/>
+		</p>
+		<p class="input-group">
+			<span class="input-group-addon" style="width: 160px; text-align: left">Salary</span>
+			<input type="text" class="form-control" ng-model="contract.Salary" readonly/>
+		</p>
+	</form>
+</div>
+<div class="bg-danger validationErrors" ng-show="validationErrors">
+    <ul>
+        <li ng-repeat="error in validationErrors">{{error}}</li>
+    </ul>
+</div> 
+<div>
+	<button class="btn btn-primary" ng-click="createContract()" ng-disabled="newContractForm.$invalid">Add</button>&nbsp;
+</div>

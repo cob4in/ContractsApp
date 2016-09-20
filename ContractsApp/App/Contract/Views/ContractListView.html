@@ -1,0 +1,22 @@
+﻿<h3>Contract List</h3>
+<div>
+	<a href="#" ng-click="refreshContracts()"><span class="glyphicon glyphicon-refresh"></span></a>
+</div>
+<div>
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Name</th>
+				<th>Salary</th>
+			</tr>
+		</thead>
+		<tbody ng-repeat="c in contracts">
+			<tr>
+				<td><a href="#" ng-click="showContract(c)">show</a></td>
+				<td>{{ c.Name }}</td>
+				<td>{{ c.Salary }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

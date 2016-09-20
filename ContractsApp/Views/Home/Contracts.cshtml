@@ -1,0 +1,31 @@
+﻿
+@{
+	ViewBag.Title = "Contracts";
+}
+@section scripts {
+	
+	<script src="~/App/Contract/App.js"></script>
+	<script src="~/App/Contract/ViewModels/RootViewModel.js"></script>
+	<script src="~/App/Contract/ViewModels/ContractHomeViewModel.js"></script>
+	<script src="~/App/Contract/ViewModels/ContractListViewModel.js"></script>
+	<script src="~/App/Contract/ViewModels/ContractViewModel.js"></script>
+	<script src="~/App/Contract/ViewModels/ContractCreateViewModel.js"></script>
+}
+
+<div id="contract" ng-app="contractModule" ng-controller="rootViewModel">
+	<h2>{{ pageHeading }}</h2>
+	<div class="row">
+		<div class="col-md-4">
+			<button class="btn btn-primary" ng-click="contractList()">Contract List</button>
+		</div>
+		<div class="col-md-4">
+			<button class="btn btn-primary" ng-click="showContract()">Show Contract</button>&nbsp;
+			<input type="text" ng-model="contractService.contractId" />
+		</div>
+		<div class="col-md-4">
+			<button class="btn btn-primary" ng-click="createContract()">Add Contract</button>&nbsp;
+		</div>
+	</div>
+	<hr />
+	<div ng-view></div>
+</div>
