@@ -21,7 +21,7 @@ namespace ContractsApp.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("ContractsAppDbCN", throwIfV1Schema: false)
         {
         }
 
